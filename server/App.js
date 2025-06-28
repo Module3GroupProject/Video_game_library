@@ -14,6 +14,19 @@ const client = new MongoClient(mongodb_uri)
 app.use(cors())
 app.use(express.json())
 
+// Connect to MongoDB
+async function run() {
+    try {
+        await client.connect();
+        console.log("✅ MongoDB connected successfully");
+    } catch (err) {
+        console.error("❌ Failed to connect to MongoDB", err);
+    }
+}
+
+run(); 
+// invoke the function
+
 app.get("/userdata", async (request,response)=> {
     try {
         const database = await client.db(db);
@@ -30,5 +43,5 @@ app.get("/userdata", async (request,response)=> {
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost: ${PORT}`)
+    console.log(`Server is running at http://localhost:${PORT}`)
 })
