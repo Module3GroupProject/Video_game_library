@@ -4,7 +4,8 @@ import Header from './header.jsx'
 import Footer from './footer.jsx'
 import './LoginBox.css';
 import Image from 'react-bootstrap/Image';
-// import LoginBox from './LoginBox.jsx'
+import Summarizer from "./components/Summarizer";
+
 
 function App() {
   const [gameData, setgameData] = useState([])
@@ -165,6 +166,7 @@ function App() {
           </div>
         ))}
       </div>
+      <Summarizer />
       <Footer />
     </div>
   )
